@@ -3,15 +3,41 @@ public:
 
     //function that will convert roman its corresponding integer value
     int intvalue(char ch){
-        vector<char> roman{'I','V','X','L','C','D','M'};
-        vector<int> value{1,5,10,50,100,500,1000};
+        // vector<char> roman{'I','V','X','L','C','D','M'};
+        // vector<int> value{1,5,10,50,100,500,1000};
 
-        for(int i=0;i<roman.size();i++){
-            if(ch==roman[i]){
-                return value[i];
-            }
+        // for(int i=0;i<roman.size();i++){
+        //     if(ch==roman[i]){
+        //         return value[i];
+        //     }
+        // }
+        // return 0;
+
+        //OR
+
+       
+        if(ch=='I'){
+            return 1;
         }
-        return 0;
+         if(ch=='V'){
+            return 5;
+        }
+        if(ch=='X'){
+            return 10;
+        }
+        if(ch=='L'){
+            return 50;
+        }
+        if(ch=='C'){
+            return 100;
+        }
+        if(ch=='D'){
+            return 500;
+        }
+        else{
+            return 1000;
+        }
+    
     }
 
     int romanToInt(string s) {
