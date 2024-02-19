@@ -4,6 +4,11 @@ public:
 
         //SLIDING WINDOW PROTOCOL IN STRING
         
+        //HERE WE WILL HAVE 2 POINTERS "FIRST" AND "SECOND"
+        //SIMPLY WE WILL SLIDE A WINDOW HAVING IT'S LEFT BORDER AS "FIRST" POINTER AND IT,S RIGTH BORDER AS "SECOND" POINTER
+        //WE WILL ADJUST ITS WIDTH ACCORDING TO SOME CONDITIONS .....IF ITS RIGHT BORDER ENCOUNTER ANY CHARACTER WHICH IS NOT PRESENT IN THE WINDOW THEN ITS WIDTH WILL INCRESE  BY MOVING ITS RIGHT BORDER OR  "SECOND" POINTER
+        //ELSE IF ITS RIGHT BORDER ENCOUNTER ANY CHARACTER WHICH IS ALREADY PRESENT IN THE WINDOW THEN ITS WIDTH WILL DECREASED BY REMOVING THAT PREVIOUSLY OCCURED CHARACTER FROM THE WINDOW BY USING ITS LEFT BORDER "FIRST" POINTER
+        
         int longest=0;//this  variable will store the length of longest possible substring which wii not have any  repeatinng character
         int first=0,second=0;//two pointer where second pointer will check wheather any character has already occured before
         //betwwen current first and second pointer and according to this firrst pointeer will move to remove that already occured character from the current  substring
