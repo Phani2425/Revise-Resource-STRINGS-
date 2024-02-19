@@ -13,7 +13,9 @@ public:
         int first=0,second=0;//two pointer where second pointer will check wheather any character has already occured before
         //betwwen current first and second pointer and according to this firrst pointeer will move to remove that already occured character from the current  substring
 
-        vector<int> map(256,0);//this is a vector  which will be used as map to keep track of  wheather any character has already occured between current first and second pointer
+        vector<int> map(256,0);// 256 SIZE IS TAKEN TO MAP ALL POSSIBLE CHARACTERS AS IN QUES CONSTRAINT IS STRING CAN HAVE EVERY POSSIBLE CHARACETR AND WE HAVE TOTAL 256 CHARACTER
+        //SO BY TAKING 256 SIZE WE COULD MAP EACH ONE IF THEY WILL BE PRESENT IN STRING
+        //this is a vector  which will be used as map to keep track of  wheather any character has already occured between current first and second pointer
         //the character that already occured  will have 1 in the corresponding index off the map otherwise it will contain 0 in correspondingg index of character
         //when ever we will found any  unooccuered chaaracter in second pointer theen we will put 1 inn the corresponding index of that character
         //and when we will found any already occured characcter in second pointer then we will move first pointer and put 0 for all characters in their correspondding  index of map untill we reach that character
