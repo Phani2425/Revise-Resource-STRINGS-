@@ -53,14 +53,25 @@ public:
             //loop for traversing vector or digits to multiply them with i
             while(index<ans.size()){
                 int result= i * ans[index] + carry;
-                ans[index]=result%10;
+                ans[index]=result%10;//we are doing it to get the digit present at 1's place of result
+                //as the digit stored in 1's place will always be strored in array and others go to carry
                 carry=result/10;
                 index++;
             }
             
             while(carry>0){
-                ans.push_back(carry%10);
+                   //i made mistake here
+                ans.push_back(carry%10);//i have to know about this
+                //carry can be any number it is not manadatory that carry  will alwayas be single digit numberr
+                //let we have to calculate factorial of 800 so at last step:- 
+                //let we have a digtit 2 at last index of vector and we are multiplying it with i=800
+                //then result will be 800*2 =1600 among which digit at 1's place will be stored and 160 will go to carry
+                //son from 160 as we are storing number in reverse order we have to first stoore 0 then 6 then 1
+                //that is why by carry%10 we are getting the digit at 1's place then we are dividing it by 10
+                //untill it turns out to 0 we will repeat the process
                 carry/=10;
+                //here also i made mistake that i forgot to increment index
+                //each time we are pushing a digit we will move to next index of vector
                 index++;
             }
         }
