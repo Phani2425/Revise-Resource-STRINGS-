@@ -1,6 +1,9 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+
+        //SLIDING WINDOW PROTOCOL IN STRING
+        
         int longest=0;//this  variable will store the length of longest possible substring which wii not have any  repeatinng character
         int first=0,second=0;//two pointer where second pointer will check wheather any character has already occured before
         //betwwen current first and second pointer and according to this firrst pointeer will move to remove that already occured character from the current  substring
