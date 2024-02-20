@@ -81,7 +81,7 @@ class Solution{
              
              
             while(diff==0){//why we used loop here ?????
-                 //do dry run for first example you will clearly understand
+                 //do dry run for first example you will clearly understand or use  example such as :- "AAABBCCBDDDE" where E has only one occurance and at last..............
                  //because in a situation where second index is present at last inndex of string and there "diff" value get to 0
                  //with it second pointer get increment and go outside the string and if we donot use loop here then the control will comppletely go outside of the whole loop
                  //if it happens we will not get chance to store the length of the currnt window also we will no able to check for more shorter length by moving first pointer
