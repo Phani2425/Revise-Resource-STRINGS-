@@ -80,8 +80,18 @@ class Solution{
             }
              
              
-            while(diff==0){
+            while(diff==0){//why we used loop here ?????
+                 //do dry run for first example you will clearly understand
+                 //because in a situation where second index is present at last inndex of string and there "diff" value get to 0
+                 //with it second pointer get increment and go outside the string and if we donot use loop here then the control will comppletely go outside of the whole loop
+                 //if it happens we will not get chance to store the length of the currnt window also we will no able to check for more shorter length by moving first pointer
+                 //hence we used loop here because to handle that situation (as in first example) and we can store the length of current window and also check for more shorter window by moving first pointer
+                
                 smallest=min(smallest,(second-first));//this is very very immportant
+                //before moving first pointer the window we got now without moving  the first pointer also contain all the unique characters
+                //so we have to compare that and store that
+                //basically whenever value of diff becomes 0 we will store the length of current window
+                //then only we start moving first pointer in search of more shorter substring
                 
                 if(map[str[first]] != 1){//if the character pointed by first ponter or the charactrer we want to remove now is not the last character of it,s own type then this will mean that 
                 //even after removing it we will have that window which will still contain all unique character
@@ -92,7 +102,12 @@ class Solution{
                 
                 map[str[first]]--;
                 first++;
-                smallest=min(smallest,(second-first));//this is very very immportant
+                smallest=min(smallest,(second-first));///this is very very immportant
+                //why we are doing (second-first) insted of second-first+1 ??????
+                //because notice clearly that in the if block whatever be the value of 'diff' always second gets updated to next index
+                //let at a point diff value becomes 0 then also second pointer will move to the next index of current window
+                //so here the actual length of the window will be from first position to second-1 position 
+                //so lenght will be:-  (second-1)-first+1 = second -first..........................................
                     
                 }
                 else{
