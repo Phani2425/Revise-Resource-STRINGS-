@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+string s="ABCDEABCD";
+int longest=0;
+string prefix,suffix;
+
+int length=s.length();
+
+for(int i=1;i<=length-1;i++){
+    
+    //substr() funtion take a time complexiity 
+    prefix=s.substr(0,i);//as prefix always starts from oth index
+    suffix=s.substr(length-i,i);///as suffix always end with at last index
+
+    if(prefix==suffix){
+        longest= max(longest, i);
+    }
+}
+
+cout<<longest;
+return 0;
+
+}
