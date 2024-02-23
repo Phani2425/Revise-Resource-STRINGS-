@@ -8,24 +8,14 @@ public:
         if(k==0){
             return false;
         }
-
-        //declaring pointers i and j
-        int i=0,j=1;
-
-        while(j<nums.size()){
-             while(j<nums.size() && abs(i-j)<=k){
-                 if(nums[i]==nums[j]){
-                     return true;
-                 }
-                 else{
-                     j++;
-                 }
-             }
-
-            
-                 i++;
-                 j=i+1;
-             
+        //finding size of nums
+        int size=nums.size();
+        for(int i=0;i<size;i++){
+            for(int j=i+1;j<=i+k;j++){
+                if(j<size && nums[i]==nums[j]){
+                    return true;
+                }
+            }
         }
         return false;
 
