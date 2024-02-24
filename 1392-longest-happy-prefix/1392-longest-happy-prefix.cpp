@@ -75,14 +75,14 @@ public:
         //THIS LENGTH  WILL FURTHER HELP US IN FINDING THE HAPPY PREFIX AS HAPPY PREFIX IS THE SUBSTRINNG OF SAME SIZE AS LONGEST PREFIX-SUFFIX OF STRING AND STARTS FROM 0TH INDEX
 
         //SO NOW IF THE VALUE OF "longest_prefix_suffix" IS 0 THAT WILL MEAN THAT THE STRING DOESNOT HAVE ANY PREFIX-SUFFIX SO WE WILL RETURN EMPTY STRING
-         string happypre="";
+
          if(longest_prefix_suffix == 0){
-             return happypre;
+             return "";
          }
          //ELSE WE WILL RETURN THE SUBSTRING HAVING SIZE OF "longest_prefix_suffix" AND STARTING FROM 0
          else{
-             happypre=s.substr(0,longest_prefix_suffix);
-             return happypre;
+        
+             return s.substr(0,longest_prefix_suffix);
          }
 
     }
