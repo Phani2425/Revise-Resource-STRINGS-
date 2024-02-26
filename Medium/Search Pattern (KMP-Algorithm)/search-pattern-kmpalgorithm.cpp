@@ -88,12 +88,8 @@ class Solution
                     int index=first-second;//THIS IS THE 0 BASED INDEX OF TXT WHERE PAT IS PRESENT
                     ans.push_back(index+1);//pushed 1 based index
                     
-                    //NOW BRINGING SECOND BACK TO 0TH INDEX OF PAT 
-                    second=0;
-                    
                     //EDGE CASE
                     
-                    // HERE WE BOUGHT BACK SECOND TO 0 BUT LET FIRST REMAIN THERE AS PER ACTUAL KMP ALGORITHM
                     //BUT IN THOSE QUESTION WE HAD TO ONLY RETURN THE INDEX OF FIRST OCCURANCE OF PAT IN TXT THAT IS WHY WE NNED NOT TO BRING FIRST BACK
                     //BUT THERE ARE SOME CASES WHERE IF WE DONOT BRING BACK FIRST WE WILL MISS SOME INDEX WHERE PAT CAN BE PRESENT IN THE TXT
                     //FOR EXAMPLE:- TXT= "AAAAAA" AND PAT="AAA"
@@ -102,8 +98,9 @@ class Solution
                     //BECAUSE WHEN WE WILL GET THAT AT INDEX 0 OF TXT STRING, PAT IS PRESENT THEN OUR FIRST WILL BE AT 3RD INDEX AND SECOND WILL BOUGHT BACK TO 0TH INDEX
                     //NOW COMPARISION WILL START FROM 3RD INDEX OF TXT SO WE WILL MISS 1ST AND 2ND INDEX
                     //SO WE HAVE TO BRING BACK FIRST TO THE NEXT INDEX WHERE WE GOT OUR PAT
+                    //but this will not use KMP ALGORITHIM ANYWHERE SO WE WILL NOT BRING BACK FIRST BUT WILL PROVIDE A CHARACTER TO COMMPARE WITH THAT BY BRINGING SECOND TO A CERTAIN POSITION USING LPS TABLE
                     
-                    first=index+1;
+                    second=LPS[second-1];
                 }
             }
             
