@@ -80,19 +80,13 @@ public:
          //NOW I HAVE GOT THE LENGTH OF LPP SO NOW I HAVE TO ATTACH REMAINING CHARACTER IN REVERSE ORDER INFRONT OF THE ORIGINAL STRING AND RETURN THAT
          //FIRST I WILL PUSH THOSE REMINGING CHARACTER FROM THE BACK OF THE STRING IN REVERSE ORDER INTO A NEW STRING THEN I WILL PUSH THE ORIGINAL STRING
 
-         //answer string
-         string ans;
-         for(int i=s.size()-1;i>=LPP_length;i--){
-             ans=ans+s[i];
+         //INSTED OF CREATING ANOTHER STRING FOR ANSWER I WILL DO THIS  IN THE ALREADY REVERSED STRING I.E REV
+         for(int i=LPP_length;i<=s.size()-1;i++){
+             rev=rev+s[i];
          }
         //so we have added the remaining characters in reverse order by traversing the string from back upto the index FROM WHICH CHARACTER OF THE STRING WILL BE PLACED IN FRONT OF THAT STRING TO MAKE THAT PALINDROME
-         //now we will append the original string
-         ans=ans+s;
-
-
-         return ans;
-
-
+         
+         return rev;
 
     }
 };
