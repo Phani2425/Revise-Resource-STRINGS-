@@ -41,6 +41,11 @@ public:
         //SO TO AVOID THESE TYPE OF MISTAKE WE ADD A SEPARATOR WHILLE COMBINING LIKE:- AAAA$AAAA HERE THE LPS WILL BE 4
         //SEPARATOR IS THE SYMBOL THAT CANNOT BE PRESENT IN THE GIVEN STRING PREVIOUSLY AND USED TO SEPARATE ORIGINAL AND REVERSED STRING WHICH CAN BE &,$,ANYRTHING
         
+         //edge case
+         if(s.size()==0){
+             return "";
+         }
+
         //SO LETS REVERSE THE STRING AND COMBINE IT TO FIND OUT THE LENGTH OF LONGEST PREFIX PALINDROME
         // reversing the string in anaother string variable to keep the original string intact
         string rev=s;
