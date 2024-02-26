@@ -1,5 +1,57 @@
 class Solution {
 public:
+
+    int KMP_MATCH(string str, string b){
+        //building lps table for b
+        vector<int>lps(b.size());
+        lps[0]=0;
+        int pref=0,suff=1;
+
+        while(suff<b.size()){
+            if(b[pref]==b[suff]){
+                lps[suff]=pref+1;
+                pref++;suff++;
+            }
+            else{
+                if(pref==0){
+                    lps[suff]=0;
+                    suff++;
+                }
+                else{
+                    pref=lps[pref-1];
+                }
+            }
+        }
+
+        //now we will do string matching using kmp
+
+        int first=0;
+        int second=0;
+
+        while(first<str.size() && second<b.size()){
+            if(str[first]==b[second]){
+                first++;
+                second++;
+            }
+
+            else{
+                if(second==0){
+                    first++;
+                }
+                else{
+                    second=lps[second-1];
+                }
+            }
+        }
+
+        if(second==b.size()){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
     int repeatedStringMatch(string a, string b) {
 
         //SO HERE MY INTUTION IS TO REPEAT STRING A UNTIL IT REACHES THE SAME OR SLIGHTLY MORE SIZE THAN THE SIZE OF STRING B 
@@ -32,22 +84,35 @@ public:
 
         //NOW WE WILL CHECK WHEATHER B IS SUBSTRING OF A OR NOT BASICALLY WE WILL DO STRING MATCHING
         //FOR THAT WE CAN USE KMP ALGORITHM OF STRING MATCHING
+
+        if(KMP_MATCH(str,b)==1){
+            return repeat;
+        }
+
+        if(KMP_MATCH(str+a,b)==1){
+            return repeat+1;
+        }
+
+        else{
+            return -1;
+        }
+
         //ASLO WE CAN USE FIND FUNCTION OF STL
          
-        int flag=0;
-        while(1){
-            if(str.find(b) == string:: npos){
-                if(flag==1){//IF EVEN AFTER REPEATING THE STRING FOR A EXTRA TIME STILL B IS  NOT A SUBSTRING A THE IT CAN NEVER BE SO RETURN -1
-                    return -1;
-                }
-                str=str+a;//REPEATING STRING A FOR A EXTRA TIME
-                repeat++;
-                flag=1;//THIS MEANS WE HAVE REPEATDED THE STRING A FOR A EXTRA TIME
-            }
-            else{
-                return repeat;
-            }
-        }
+        // int flag=0;
+        // while(1){
+        //     if(str.find(b) == string:: npos){
+        //         if(flag==1){//IF EVEN AFTER REPEATING THE STRING FOR A EXTRA TIME STILL B IS  NOT A SUBSTRING A THE IT CAN NEVER BE SO RETURN -1
+        //             return -1;
+        //         }
+        //         str=str+a;//REPEATING STRING A FOR A EXTRA TIME
+        //         repeat++;
+        //         flag=1;//THIS MEANS WE HAVE REPEATDED THE STRING A FOR A EXTRA TIME
+        //     }
+        //     else{
+        //         return repeat;
+        //     }
+        // }
 
     }
 };
