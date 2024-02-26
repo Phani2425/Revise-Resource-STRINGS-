@@ -86,9 +86,7 @@ public:
          //FIRST I WILL PUSH THOSE REMINGING CHARACTER FROM THE BACK OF THE STRING IN REVERSE ORDER INTO A NEW STRING THEN I WILL PUSH THE ORIGINAL STRING
 
          //INSTED OF CREATING ANOTHER STRING FOR ANSWER I WILL DO THIS  IN THE ALREADY REVERSED STRING I.E REV
-         for(int i=LPP_length;i<=s.size()-1;i++){
-             rev=rev+s[i];
-         }
+         rev=rev+s.substr(LPP_length,s.size()-LPP_length);
         //so we have added the remaining characters in reverse order by traversing the string from back upto the index FROM WHICH CHARACTER OF THE STRING WILL BE PLACED IN FRONT OF THAT STRING TO MAKE THAT PALINDROME
          
          return rev;
