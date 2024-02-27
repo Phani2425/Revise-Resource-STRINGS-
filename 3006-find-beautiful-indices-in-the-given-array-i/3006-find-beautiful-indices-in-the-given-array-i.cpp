@@ -25,6 +25,12 @@ public:
 
     //FUNCTION FOR SEARCHING A STRING IN MAIN STRING
     void KMPsearch(string &txt,string &pat,vector<int> &LPS,vector<int>&occurance){
+        
+        if(txt==pat){//no requirement to further comapre
+            occurance.push_back(0);
+            return;
+        }
+
         int first=0;//POINTER THAT WILL TRAVERSE ON TXT
         int second=0;//POINTER THAT WILL TRAVERSE ON PAT
 
