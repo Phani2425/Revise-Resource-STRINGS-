@@ -90,8 +90,8 @@ public:
         //WHEN WE WILL FIND A INDEX 'I' TO BE BEAUTIFUL THEN WE WILL PUSH THAT IN AND MOVE TO THE NEXT 'I' WE WILL NOT FURTHER CHECK FOR THE ALREADY BEAUTIFUL INDEX 
         //FOR THIS WE WILL USE BREAK STATEMENT WHEN WE WILL GET A BEAUTIFUL INDEX TO STOP FURTHER CHECKING FOR IT
 
-        for(int m=0;m<a_occurance.size();m++){//m is the index value and this outer loop will traverse on each element of a_occurance which stores occurance of string a in string s or (i)
-            for(int n=0;n<b_occurance.size();n++){ //m is the index value and this inner loop will traverse on each element of b_occurance which stores occurance of string b in string s or (j)
+        for(int m=0;m<a_occurance.size();m++){//m is the index value of a_occurance vector and this outer loop will traverse on each element of a_occurance which stores occurance of string a in string s or (i)
+            for(int n=0;n<b_occurance.size();n++){ //n is the index value of b_occurance vector and this inner loop will traverse on each element of b_occurance which stores occurance of string b in string s or (j)
                  if( abs(a_occurance[m]-b_occurance[n]) <= k ){
                      ans.push_back(a_occurance[m]);
                      break;//WE WILL NOT FURTHER CHECK FOR THIS INDEX
