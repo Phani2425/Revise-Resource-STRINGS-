@@ -34,7 +34,7 @@ public:
         int first=0;//POINTER THAT WILL TRAVERSE ON TXT
         int second=0;//POINTER THAT WILL TRAVERSE ON PAT
 
-        while(first<txt.size() && second<pat.size())////..........veery veery important condition................///
+        while(first<txt.size())////..........veery veery important condition................///
         {
             if(txt[first]==pat[second]){
                 first++;
