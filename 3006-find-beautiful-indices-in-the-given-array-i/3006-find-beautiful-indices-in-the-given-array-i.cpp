@@ -2,7 +2,7 @@ class Solution {
 public:
 
     //FUNCTION  FOR FILLING LPS TABLE
-    void fill_lps(vector<int> &LPS, string str){
+    void fill_lps(vector<int> &LPS, string &str){
         LPS[0]=0;
         int pref=0,suff=1;
         while(suff<LPS.size()){
@@ -24,7 +24,7 @@ public:
     }
 
     //FUNCTION FOR SEARCHING A STRING IN MAIN STRING
-    void KMPsearch(string txt,string pat,vector<int> &LPS,vector<int>&occurance){
+    void KMPsearch(string &txt,string &pat,vector<int> &LPS,vector<int>&occurance){
         int first=0;//POINTER THAT WILL TRAVERSE ON TXT
         int second=0;//POINTER THAT WILL TRAVERSE ON PAT
 
