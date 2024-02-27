@@ -95,16 +95,56 @@ public:
 
         //WHEN WE WILL FIND A INDEX 'I' TO BE BEAUTIFUL THEN WE WILL PUSH THAT IN AND MOVE TO THE NEXT 'I' WE WILL NOT FURTHER CHECK FOR THE ALREADY BEAUTIFUL INDEX 
         //FOR THIS WE WILL USE BREAK STATEMENT WHEN WE WILL GET A BEAUTIFUL INDEX TO STOP FURTHER CHECKING FOR IT
+        
+        //but this nested loop will take 0(n^2) time complexity where n is the size of a_occurance and b_occurace
+        // for(int m=0;m<a_occurance.size();m++){//m is the index value of a_occurance vector and this outer loop will traverse on each element of a_occurance which stores occurance of string a in string s or (i)
+        //     for(int n=0;n<b_occurance.size();n++){ //n is the index value of b_occurance vector and this inner loop will traverse on each element of b_occurance which stores occurance of string b in string s or (j)
+        //          if( abs(a_occurance[m]-b_occurance[n]) <= k ){
+        //              ans.push_back(a_occurance[m]);
+        //              break;//WE WILL NOT FURTHER CHECK FOR THIS INDEX
+        //              //BY BREAKING THE INNER LOOP WE WILL GO FOR CHECKING THE NEXT INDEX IN "a_occurance" VECTOR
+        //          }
+        //     }
+        // }
 
-        for(int m=0;m<a_occurance.size();m++){//m is the index value of a_occurance vector and this outer loop will traverse on each element of a_occurance which stores occurance of string a in string s or (i)
-            for(int n=0;n<b_occurance.size();n++){ //n is the index value of b_occurance vector and this inner loop will traverse on each element of b_occurance which stores occurance of string b in string s or (j)
-                 if( abs(a_occurance[m]-b_occurance[n]) <= k ){
-                     ans.push_back(a_occurance[m]);
-                     break;//WE WILL NOT FURTHER CHECK FOR THIS INDEX
-                     //BY BREAKING THE INNER LOOP WE WILL GO FOR CHECKING THE NEXT INDEX IN "a_occurance" VECTOR
-                 }
-            }
-        }
+        //>>>>>>>>>>>>>>>>>>THIS APPROACH IS CORRECT FOR CHECKING WHEATHER I IS BEAUTIFUL INDEX OR NOT BUT THIS LEADS THE TIME COMPLEXITY TO O(N^2)<<<<<<<<<<<<<//////
+    //SO LETS TRY ANOTHER APPROACH WHICH IS MORE EFFICIENT THAN THIS NESTED LOOP APPROACH AND A LITLLE BIT TRICKY
+    //IF YOU WOULD THINK ABOUT THAT APPROACH THEN REALLY YOU WILL BE AMAZED 
+    //SO DRY RUN THAT APPROACH YOU WILL GET VERY GOOD KNOWLRDGE
+    //AS WE KNOW THAT BOTH A_OCCURANCE AND B_OCCURANCE ARE SORTED ALREADY
+    // WHILE FINDING THE INDEX OF OCCURANCES OF A OR B INN STRING S WE WERE SEARCHING FOR INNDEX FROM 0TH INDEX OF STRING S TO LAST INDEX
+    //SO OBVIOUSLY WE WOULD GOT THEIR INDEX OF OCCURANCE IN ASCENDING ORDER ASLO WE WILL STORE THEM IN ASCENDING ORDER IN RESPECTIVE VECTORS
+    //SO LETS USE THIS SPECIALITY TO DO THE SAME STEPS BUT IN A OPTIMISED MANNER
+    //WE WILL USE A TWO POINTER APPROACH TO ITERATE ON BOTH VECTOR
+
+
+    int i=0;//iterate upon a_occurance
+    int j=0;//itarate upon b_occurance
+    while(i < a_occurance.size() && j < b_occurance.size()){
+          if(abs(a_occurance[i]-b_occurance[j]) <= k){
+              ans.push_back(a_occurance[i]);
+              i++;
+          }
+          else if(a_occurance[i] > b_occurance[j]){//JADI DIFFERENCE K THU ADHIKA AU a_occurance[i] ,  b_occurance[j] THU ADHIKA SO K DIFFERENCE ACHIVE KARIBA PAIN 
+          //AMAKU b_occurance[j] RA VALUE BADHEIBAKKU PADIBA SO J KU NEXT KU MOVE KARIBAKU PADIBA KAIN NA B_OCCURANCE ASSCENDING ORDER RE ACHI
+              //for value at i, j may present in right of b_occurance
+              j++;
+          }
+          else if(a_occurance[i] < b_occurance[j]){//JADI DIFFERENCE K THU ADHIKA AU a_occurance[i] ,  b_occurance[j] THU KAM ACHI SO K DIFFERENCE ACHIVE KARIBA PAIN 
+          //AMAKU a_occurance[j] RA VALUE BADHEIBAKKU PADIBA SO I KU NEXT KU MOVE KARIBAKU PADIBA KAIN NA A_OCCURANCE ASSCENDING ORDER RE ACHI
+              //for value at j, i may be present at right of a_occurance 
+              i++;
+          }
+    }
+
+    //EXPLANATION:-
+//  - nested loop re taku two pointer approach re convert karideli using 'i' and 'j' jouthare i a_occurance au j b_occurance tankara current position ku represent karuchi
+// -eithare di ta ja aau b_occurance sorted jouta efficient traversal ku lead kariba
+// -while loop continue kariba jou parjanta di ta jaka vector re element thibe compare kariba pai (i < a_occurance.size() and j < b_occurance.size()).
+// - aita check  karuchi ki current elements (a_occurance[i] and b_occurance[j]) <= k
+// - ta comparision result ku neiki aita either a_occurance ku ans vector saha add kariba au i ku increment kare kimba increment kare i or j value comparision upare base kare.
+
+     
 
         return ans; //WHY WE ARE DIRECTLY RETURNING THE ANS AS IT HAS ASKED TO RETURN IT BY SORTING IT ????
         //ACTUALY WHILE WE WERE FINDING THE OCCURANCES OF A AND B THERE THE OCCURANCES WERE FOUND FROM THE BEGEINING INDEX OF STRING S
