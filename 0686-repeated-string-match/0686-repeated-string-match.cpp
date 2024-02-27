@@ -78,7 +78,7 @@ public:
          string str=a;
 
          while(str.size()<b.size()){
-             str+=a;
+             str.append(a);
              repeat++;
          }
 
